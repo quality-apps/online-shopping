@@ -8,4 +8,6 @@ public interface CategoryDAO {
 
     List<Category> litsCategory();
 
+    Category get(int id);
+
 }

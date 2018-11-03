@@ -1,10 +1,38 @@
 <div class="container">
 
-        <div class ="raw">
+        <div class ="row">
 
-            <h1>List Products </h1>
-            <hr/>
-            <p>This is a list products page </p>
+            <!-- show sidebar -->
+            <div class="col-md-3">
+                 <%@ include file = "./shared/sidebar.jsp" %>
+            </div>
+
+            <!-- show products -->
+            <div class="col-md-9">
+
+                <div class="row">
+
+                    <div class="col-lg-12">
+
+                          <c:if test = "${userClickedAllProducts == true}">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="${contextRoot}/home">Home</a></li>
+                                    <li class="breadcrumb-item active">All products</li>
+                                </ol>
+                          </c:if>
+                          <c:if test = "${userClickedCategoryProduct == true}">
+                              <ol class="breadcrumb">
+                                  <li class="breadcrumb-item"><a href="${contextRoot}/home">Home</a></li>
+                                  <li class="breadcrumb-item"><a href="${contextRoot}/show/all/products">All products</a></li>
+                                  <li class="breadcrumb-item active">${category.name}</li>
+                              </ol>
+                          </c:if>
+
+
+                    </div>
+
+                </div>
+            </div>
 
         </div>
 </div>

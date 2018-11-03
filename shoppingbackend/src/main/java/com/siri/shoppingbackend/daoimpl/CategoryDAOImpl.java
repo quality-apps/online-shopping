@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.lang.annotation.Repeatable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository("categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO {
@@ -39,4 +40,9 @@ public class CategoryDAOImpl implements CategoryDAO {
         return categoryList;
     }
 
+    @Override
+    public Category get(final int id) {
+        Optional<Category> optional =  categoryList.stream().filter(c->c.getId() == id).findFirst();
+        return optional.orElse(null);
+    }
 }

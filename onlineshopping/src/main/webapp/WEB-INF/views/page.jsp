@@ -59,8 +59,8 @@
                 <%@ include file = "./contact.jsp" %>
             </c:if>
 
-            <!-- loading services content -->
-            <c:if test = "${userClickedServices == true}">
+            <!-- loading all products content -->
+            <c:if test = "${userClickedAllProducts == true or userClickedCategoryProduct == true}">
                 <%@ include file = "./listProducts.jsp" %>
             </c:if>
         </div>
