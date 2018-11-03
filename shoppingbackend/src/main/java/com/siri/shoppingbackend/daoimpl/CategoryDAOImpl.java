@@ -2,9 +2,11 @@ package com.siri.shoppingbackend.daoimpl;
 
 import com.siri.shoppingbackend.dao.CategoryDAO;
 import com.siri.shoppingbackend.dto.Category;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.lang.annotation.Repeatable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +14,9 @@ import java.util.Optional;
 @Repository("categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO {
 
+
+    @Autowired
+    private SessionFactory sessionFactory;
     /*
     Testing purpose code
      */
@@ -42,7 +47,21 @@ public class CategoryDAOImpl implements CategoryDAO {
 
     @Override
     public Category get(final int id) {
-        Optional<Category> optional =  categoryList.stream().filter(c->c.getId() == id).findFirst();
+        Optional<Category> optional = categoryList.stream().filter(c -> c.getId() == id).findFirst();
         return optional.orElse(null);
+    }
+
+
+
+    @Override
+    @Transactional
+    public boolean add(Category category) {
+        try {
+            sessionFactory.getCurrentSession().persist(category);
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
     }
 }

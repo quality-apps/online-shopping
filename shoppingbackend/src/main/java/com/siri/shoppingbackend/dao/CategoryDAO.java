@@ -10,4 +10,6 @@ public interface CategoryDAO {
 
     Category get(int id);
 
+    boolean add( Category category);
+
 }
