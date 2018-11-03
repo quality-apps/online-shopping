@@ -26,6 +26,9 @@
     <!-- Bootstrap core CSS -->
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Bootstrap custom theme CSS  // theme can be downloaded in bootswatch.com -->
+    <link href="${css}/bootstrap-custom-theme.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
     <link href="${css}/shop-homepage.css" rel="stylesheet">
 
@@ -33,33 +36,39 @@
 
   <body>
 
-    <!-- Navigation -->
-    <%@ include file = "./shared/navbar.jsp" %>
+  <div class="wrapper">
 
-    <!-- Page Content -->
-    <!-- loading home content -->
+        <!-- Navigation -->
+        <%@ include file = "./shared/navbar.jsp" %>
 
-    <c:if test = "${userClickedHome == true}">
-        <%@ include file = "./home.jsp" %>
-    </c:if>
+        <div class="context">
+            <!-- Page Content -->
+            <!-- loading home content -->
 
-    <!-- loading about content -->
-    <c:if test = "${userClickedAbout == true}">
-        <%@ include file = "./about.jsp" %>
-    </c:if>
+            <c:if test = "${userClickedHome == true}">
+                <%@ include file = "./home.jsp" %>
+            </c:if>
 
-    <!-- loading contact content -->
-    <c:if test = "${userClickedContact == true}">
-        <%@ include file = "./contact.jsp" %>
-    </c:if>
+            <!-- loading about content -->
+            <c:if test = "${userClickedAbout == true}">
+                <%@ include file = "./about.jsp" %>
+            </c:if>
 
-    <!-- loading services content -->
-    <c:if test = "${userClickedServices == true}">
-        <%@ include file = "./listProducts.jsp" %>
-    </c:if>
+            <!-- loading contact content -->
+            <c:if test = "${userClickedContact == true}">
+                <%@ include file = "./contact.jsp" %>
+            </c:if>
 
-    <!-- Footer -->
-    <%@ include file = "./shared/footer.jsp" %>
+            <!-- loading services content -->
+            <c:if test = "${userClickedServices == true}">
+                <%@ include file = "./listProducts.jsp" %>
+            </c:if>
+        </div>
+
+        <!-- Footer -->
+        <%@ include file = "./shared/footer.jsp" %>
+
+    </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="${js}/jquery.min.js"></script>
