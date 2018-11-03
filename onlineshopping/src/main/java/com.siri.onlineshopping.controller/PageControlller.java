@@ -1,5 +1,7 @@
 package com.siri.onlineshopping.controller;
 
+import com.siri.shoppingbackend.dao.CategoryDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -7,10 +9,15 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class PageControlller {
 
+    @Autowired
+    private CategoryDAO categoryDAO;
+
     @RequestMapping(value = {"/", "/home", "/index"})
     public ModelAndView index() {
         ModelAndView mv = new ModelAndView("page");
         mv.addObject("title", "Home");
+
+        mv.addObject("categories" ,categoryDAO.litsCategory() );
         mv.addObject("userClickedHome", true );
         return mv;
     }
