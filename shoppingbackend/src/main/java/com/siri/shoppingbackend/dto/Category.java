@@ -23,7 +23,7 @@ public class Category {
     private String imageUrl;
 
     @Column(name = "is_active")
-    private boolean aBoolean = true;
+    private boolean isActive = true;
 
     @Override
     public String toString() {
@@ -32,7 +32,7 @@ public class Category {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
-                ", aBoolean=" + aBoolean +
+                ", isActive=" + isActive +
                 '}';
     }
 
@@ -68,12 +68,12 @@ public class Category {
         this.imageUrl = imageUrl;
     }
 
-    public boolean isaBoolean() {
-        return aBoolean;
+    public boolean isActive() {
+        return isActive;
     }
 
-    public void setaBoolean(boolean aBoolean) {
-        this.aBoolean = aBoolean;
+    public void setActive(boolean active) {
+        this.isActive = active;
     }
 
 }

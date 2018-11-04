@@ -1,5 +1,5 @@
 // solving the active menu problem
-	switch (menu) {
+	switch (test) {
 
 	case 'About Us':
 		$('#about').addClass('active');
@@ -15,6 +15,6 @@
             break;
 	default:
             $('#listProducts').addClass('active');
-            $('#a_'+ menu ).addClass('active');
+            $('#a_'+ test ).addClass('active');
     		break;
     }

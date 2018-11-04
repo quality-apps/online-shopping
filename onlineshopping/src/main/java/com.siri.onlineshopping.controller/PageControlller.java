@@ -18,6 +18,7 @@ public class PageControlller {
     public ModelAndView index() {
         ModelAndView mv = new ModelAndView("page");
         mv.addObject("title", "Home");
+        mv.addObject("test", "Home");
 
         mv.addObject("categories", categoryDAO.litsCategory());
         mv.addObject("userClickedHome", true);
@@ -28,6 +29,7 @@ public class PageControlller {
     public ModelAndView about() {
         ModelAndView mv = new ModelAndView("page");
         mv.addObject("title", "About Us");
+        mv.addObject("test", "About Us");
         mv.addObject("userClickedAbout", true);
         return mv;
     }
@@ -36,6 +38,7 @@ public class PageControlller {
     public ModelAndView contact() {
         ModelAndView mv = new ModelAndView("page");
         mv.addObject("title", "Contact Us");
+        mv.addObject("test", "Contact Us");
         mv.addObject("userClickedContact", true);
         return mv;
     }
@@ -44,6 +47,7 @@ public class PageControlller {
     public ModelAndView listProducts() {
         ModelAndView mv = new ModelAndView("page");
         mv.addObject("title", "All Products");
+        mv.addObject("test", "All Products");
         mv.addObject("categories", categoryDAO.litsCategory());
         mv.addObject("userClickedAllProducts", true);
         return mv;
@@ -53,7 +57,8 @@ public class PageControlller {
     public ModelAndView listOneProduct(@PathVariable("id") int id) {
         ModelAndView mv = new ModelAndView("page");
         Category category = categoryDAO.get(id);
-        mv.addObject("title", category.getId());
+        mv.addObject("title", category.getName());
+        mv.addObject("test", category.getId());
         mv.addObject("categories", categoryDAO.litsCategory());
         mv.addObject("category", category);
         mv.addObject("userClickedCategoryProduct", true);

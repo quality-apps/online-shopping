@@ -21,6 +21,7 @@
 
     <script>
         window.menu = '${title}';
+        window.test = '${test}';
     </script>
 
     <!-- Bootstrap core CSS -->
